@@ -23,6 +23,9 @@ public class Reset : MonoBehaviour
             cube1.transform.position = new Vector3(0, 1, -8);
             cube2.transform.position = new Vector3(0, 1, -4);
             cube3.transform.position = new Vector3(0, 1, 0);
+            cube1.GetComponent<Draggable>().finish = false;
+            cube2.GetComponent<Draggable>().finish = false;
+            cube3.GetComponent<Draggable>().finish = false;
 
             chronoManager.timer = 0f;
             chronoManager.isTiming = false;

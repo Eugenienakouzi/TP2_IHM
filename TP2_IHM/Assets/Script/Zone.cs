@@ -11,7 +11,6 @@ public class Zone : MonoBehaviour
             chronoManager.StopTimer();
 
             other.GetComponent<Draggable>().finish = true;
-            other.GetComponent<Rigidbody>().useGravity = false;
             other.transform.position = transform.position + transform.up;
         }
     }
