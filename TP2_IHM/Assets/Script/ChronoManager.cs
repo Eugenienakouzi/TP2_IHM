@@ -6,10 +6,10 @@ using System;
 public class ChronoManager : MonoBehaviour
 {
     public TextMeshProUGUI timerText;
-    private float timer = 0f;
-    private bool isTiming = false;
-    private bool finished = false;
-    private int nb_cube = 0;
+    public float timer = 0f;
+    public bool isTiming = false;
+    public bool finished = false;
+    public int nb_cube = 0;
     public GameObject GameManager;
 
 
