@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class ChronoManager : MonoBehaviour
 {
@@ -39,6 +40,7 @@ public class ChronoManager : MonoBehaviour
             finished = true;
             GameManager.GetComponent<GameManager>().isFinish = true;
         }
+        Debug.Log("Temps : " + timer.ToString("F2") + "s" + "\n" + "Nombre de click : " + GameManager.GetComponent<GameManager>().GetCpt() + "\n" + "Nombre d'erreur : " + GameManager.GetComponent<GameManager>().nb_erreur);
 
     }
 
