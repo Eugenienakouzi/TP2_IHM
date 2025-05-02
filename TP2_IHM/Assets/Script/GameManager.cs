@@ -3,8 +3,12 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public TextMeshProUGUI timerText;
-    private int cpt = 0;
+    public TextMeshProUGUI clickText;
+    private int nb_click = 0;
+    public TextMeshProUGUI erreurText;
+    public int nb_erreur = 0;
+
+    public bool isFinish = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,16 +19,17 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !isFinish)
         {
-            cpt += 1;
+            nb_click += 1;
         }
-        timerText.text = "Nombre de click : " + cpt;
+        clickText.text = "Nombre de click : " + nb_click;
+        erreurText.text = "Nombre d'erreur : " + nb_erreur;
 
     }
 
     public int GetCpt()
     {
-        return cpt;
+        return nb_click;
     }
 }

@@ -1,12 +1,13 @@
 using UnityEngine;
+using TMPro;
 
 public class Draggable : MonoBehaviour
 {
     private Vector3 offset;
     private float zCoord;
     public bool finish = false;
-    
-   
+    public GameObject GameManager;
+
 
     void OnMouseDown()
     {
@@ -15,6 +16,15 @@ public class Draggable : MonoBehaviour
             zCoord = Camera.main.WorldToScreenPoint(transform.position).z;
 
             offset = transform.position - GetMouseWorldPos();
+        }
+
+    }
+
+    private void OnMouseUp()
+    {
+        if(!finish)
+        {
+        GameManager.GetComponent<GameManager>().nb_erreur += 1;
         }
     }
 
@@ -42,5 +52,6 @@ public class Draggable : MonoBehaviour
 
         return Camera.main.ScreenToWorldPoint(mousePoint);
     }
+
 
 }

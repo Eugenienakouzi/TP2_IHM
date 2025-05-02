@@ -8,10 +8,13 @@ public class ChronoManager : MonoBehaviour
     private float timer = 0f;
     private bool isTiming = false;
     private bool finished = false;
-    private int cpt = 0;
+    private int nb_cube = 0;
+    public GameObject GameManager;
+
 
     private void Update()
     {
+
         if (!finished)
         {
             if (!isTiming && Input.GetMouseButtonDown(0))
@@ -22,18 +25,19 @@ public class ChronoManager : MonoBehaviour
             if (isTiming)
             {
                 timer += Time.deltaTime;
-                timerText.text = "Temps : " + timer.ToString("F2") + "s";
             }
         }
+        timerText.text = "Temps : " + timer.ToString("F2") + "s";
     }
 
     public void StopTimer()
     {
-        cpt += 1;
-        if (cpt == 3)
+        nb_cube += 1;
+        if (nb_cube == 3)
         {
             isTiming = false;
             finished = true;
+            GameManager.GetComponent<GameManager>().isFinish = true;
         }
 
     }
