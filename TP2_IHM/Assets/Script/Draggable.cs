@@ -5,6 +5,8 @@ public class Draggable : MonoBehaviour
     private Vector3 offset;
     private float zCoord;
 
+   
+
     void OnMouseDown()
     {
         zCoord = Camera.main.WorldToScreenPoint(transform.position).z;
@@ -25,4 +27,5 @@ public class Draggable : MonoBehaviour
 
         return Camera.main.ScreenToWorldPoint(mousePoint);
     }
+
 }
