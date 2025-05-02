@@ -14,13 +14,6 @@ public class GameManager : MonoBehaviour
 
     public bool isFinish = false;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0) && !isFinish)
@@ -34,32 +27,32 @@ public class GameManager : MonoBehaviour
 
     public void facile()
     {
-        zone1.transform.position = new Vector3(10, 0.1f, -8);
-        zone2.transform.position = new Vector3(10, 0.1f, -4);
-        zone3.transform.position = new Vector3(10, 0.1f, 0);
-        zone1.transform.localScale = new Vector3(2, 0.2f, 2);
-        zone2.transform.localScale = new Vector3(2, 0.2f, 2);
-        zone3.transform.localScale = new Vector3(2, 0.2f, 2);
+        zone1.transform.position = new Vector3(10, 0, -8);
+        zone2.transform.position = new Vector3(10, 0, -4);
+        zone3.transform.position = new Vector3(10, 0, 0);
+        zone1.transform.localScale = new Vector3(2, 0.4f, 2);
+        zone2.transform.localScale = new Vector3(2, 0.4f, 2);
+        zone3.transform.localScale = new Vector3(2, 0.4f, 2);
     }
 
     public void moyen()
     {
-        zone1.transform.position = new Vector3(16, 0.1f, -8);
-        zone2.transform.position = new Vector3(16, 0.1f, -4);
-        zone3.transform.position = new Vector3(16, 0.1f, 0);
-        zone1.transform.localScale = new Vector3(1, 0.1f, 1);
-        zone2.transform.localScale = new Vector3(1, 0.1f, 1);
-        zone3.transform.localScale = new Vector3(1, 0.1f, 1);
+        zone1.transform.position = new Vector3(16, 0, -8);
+        zone2.transform.position = new Vector3(16, 0, -4);
+        zone3.transform.position = new Vector3(16, 0, 0);
+        zone1.transform.localScale = new Vector3(1, 0.4f, 1);
+        zone2.transform.localScale = new Vector3(1, 0.4f, 1);
+        zone3.transform.localScale = new Vector3(1, 0.4f, 1);
 
     }
     public void difficile()
     {
-        zone1.transform.position = new Vector3(16, 2, -8);
+        zone1.transform.position = new Vector3(16, 2, -12);
         zone2.transform.position = new Vector3(16, 2, -4);
-        zone3.transform.position = new Vector3(16, 2, 0);
-        zone1.transform.localScale = new Vector3(1, 0.1f, 1);
-        zone2.transform.localScale = new Vector3(1, 0.1f, 1);
-        zone3.transform.localScale = new Vector3(1, 0.1f, 1);
+        zone3.transform.position = new Vector3(16, 2, 4);
+        zone1.transform.localScale = new Vector3(1, 0.2f, 1);
+        zone2.transform.localScale = new Vector3(1, 0.2f, 1);
+        zone3.transform.localScale = new Vector3(1, 0.2f, 1);
     }
 
     public int GetCpt()

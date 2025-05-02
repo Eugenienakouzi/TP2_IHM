@@ -24,7 +24,17 @@ public class Draggable : MonoBehaviour
     {
         if(!finish)
         {
-        GameManager.GetComponent<GameManager>().nb_erreur += 1;
+            GameObject zone;
+            if (IsInsideAnyZone(out zone))
+            {
+                finish = true;
+                GameManager.GetComponent<ChronoManager>().StopTimer();
+                transform.position = transform.position + Vector3.up;
+            }
+            else
+            {
+                GameManager.GetComponent<GameManager>().nb_erreur += 1;
+            }
         }
     }
 
@@ -53,5 +63,53 @@ public class Draggable : MonoBehaviour
         return Camera.main.ScreenToWorldPoint(mousePoint);
     }
 
+    private bool IsInsideAnyZone(out GameObject validZone)
+    {
+        GameObject[] zones = GameObject.FindGameObjectsWithTag("Zone");
+        Collider cubeCollider = GetComponent<Collider>();
+        Bounds cubeBounds = cubeCollider.bounds;
+
+        Vector3[] corners = GetCubeCorners(cubeBounds);
+
+        foreach (GameObject zone in zones)
+        {
+            Collider zoneCollider = zone.GetComponent<Collider>();
+            Bounds zoneBounds = zoneCollider.bounds;
+
+            bool allInside = true;
+            foreach (Vector3 corner in corners)
+            {
+                if (!zoneBounds.Contains(corner))
+                {
+                    allInside = false;
+                    break;
+                }
+            }
+
+            if (allInside)
+            {
+                validZone = zone;
+                return true;
+            }
+        }
+
+        validZone = null;
+        return false;
+    }
+
+    private Vector3[] GetCubeCorners(Bounds bounds)
+    {
+        Vector3[] corners = new Vector3[4];
+
+        Vector3 min = bounds.min;
+        Vector3 max = bounds.max;
+
+        corners[0] = new Vector3(min.x, min.y, min.z);
+        corners[1] = new Vector3(min.x, min.y, max.z);
+        corners[2] = new Vector3(max.x, min.y, min.z);
+        corners[3] = new Vector3(max.x, min.y, max.z);
+
+        return corners;
+    }
 
 }

@@ -4,14 +4,4 @@ public class Zone : MonoBehaviour
 {
     public ChronoManager chronoManager;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Cube"))
-        {
-            chronoManager.StopTimer();
-
-            other.GetComponent<Draggable>().finish = true;
-            other.transform.position = transform.position + transform.up;
-        }
-    }
 }
