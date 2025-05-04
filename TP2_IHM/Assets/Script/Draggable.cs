@@ -53,10 +53,10 @@ public class Draggable : MonoBehaviour
         float wheel = Input.GetAxis("Mouse ScrollWheel");
         if (wheel > 0.05f)
         {
-            zCoord += 1;
+            zCoord += 0.35f;
         }else if (wheel < -0.05f)
         {
-            zCoord -= 1;
+            zCoord -= 0.3f;
         }
         mousePoint.z = zCoord;
 
